@@ -2,20 +2,24 @@
   <ion-content style="margin-top:50px" >
           <ion-list style="width:100%" show-delete="data.showDelete" show-reorder="data.showReorder" >
 
-        <ion-item ng-repeat="item in items" 
-                  item="item"
-                  href="#/item/{{item.id}}" class="item-remove-animate">
-          Item {{ item.id }}
-          <ion-delete-button class="ion-minus-circled" 
-                             ng-click="onItemDelete(item)">
+        <ion-item ng-repeat="item in items" item="item" href="#/item/{{item.id}}" class="item-remove-animate">
+          <div class="row">
+          <div class="col col-10">
+          <div style="border-radius:50%;background-color:{{item.color}};border:1px solid black;width:20px;height:20px"></div>
+          </div>
+           <div class="col col-90">
+            Item {{ item.id }}
+          </div>
+          </div>
+          
+          <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)">
           </ion-delete-button>
-          <ion-option-button class="button-assertive"
-                             ng-click="edit(item)">
-            Edit
+          <ion-option-button class="button-positive" ng-click="edit(item)">
+                             
+            <i class="icon ion-edit" style="font-size:20px"></i>
           </ion-option-button>
-          <ion-option-button class="button-calm"
-                             ng-click="share(item)">
-            Delete
+          <ion-option-button class="button-assertive" ng-click="share(item)">                           
+           <i class="icon ion-trash-a" style="font-size:30px"></i>
           </ion-option-button>
           <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
         </ion-item>

@@ -1,5 +1,25 @@
-<ion-view view-title="Dashboard">
-  <ion-content class="padding" style="margin-top:8vh">
-   
+<ion-view view-title="Dashboard" >
+  <ion-content style="margin-top:50px" >
+          <ion-list style="width:100%" show-delete="data.showDelete" show-reorder="data.showReorder" >
+
+        <ion-item ng-repeat="item in items" 
+                  item="item"
+                  href="#/item/{{item.id}}" class="item-remove-animate">
+          Item {{ item.id }}
+          <ion-delete-button class="ion-minus-circled" 
+                             ng-click="onItemDelete(item)">
+          </ion-delete-button>
+          <ion-option-button class="button-assertive"
+                             ng-click="edit(item)">
+            Edit
+          </ion-option-button>
+          <ion-option-button class="button-calm"
+                             ng-click="share(item)">
+            Delete
+          </ion-option-button>
+          <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+        </ion-item>
+
+      </ion-list>
   </ion-content>
 </ion-view>

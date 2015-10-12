@@ -1,12 +1,12 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope,$state) {
   $scope.data = {
     showDelete: false
   };
   
   $scope.edit = function(item) {
-    alert('Edit Item: ' + item.id);
+    $state.go('tab.dash-edit');
   };
   $scope.share = function(item) {
     alert('Delete Item: ' + item.id);
@@ -55,8 +55,14 @@ angular.module('starter.controllers', [])
     enableFriends: true
   };
 })
-.controller('FractalsController', function($scope,$ionicGesture) {
+.controller('NodeEditController', function($scope) {
+  $scope.settings = {
+    enableFriends: true
+  };
+})
+.controller('FractalsController', function($scope,$ionicGesture,$ionicHistory,$rootScope) {
   $scope.menuSize='modal-in';
+  $rootScope.showBackButton=false;
   console.log($ionicGesture);
   $ionicGesture.on('swipedown',function(){console.log('boom')},angular.element(document.querySelector('#bottomFractalMenu')));
   $scope.toggleMenu=function(){
@@ -67,6 +73,9 @@ angular.module('starter.controllers', [])
     $scope.menuSize='modal-in';
     $scope.iconFractalMenu='';
     console.log('open');
+  };
+  $scope.goBack=function(){
+    $ionicHistory.goBack();
   };
   $scope.closeMenu=function(){
     $scope.menuSize='modal-out';

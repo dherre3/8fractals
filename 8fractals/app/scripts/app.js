@@ -49,8 +49,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
       }
     }
   })
-
-  .state('tab.chats', {
+.state('tab.dash-edit',{
+  url: '/dash/das',
+    views: {
+    'tab-dash': {
+      templateUrl: 'templates/tab-node-edit.html',
+      controller: 'NodeEditController'
+    }
+  }
+})
+.state('tab.chats', {
       url: '/chats',
       views: {
         'tab-chats': {
@@ -82,4 +90,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 
+})
+.run(function ($rootScope, $state,$timeout)
+{
+  $rootScope.$on('$stateChangeStart', function (event, toState, toParams)
+  {
+    console.log(toState.name);
+    if(toState.name=='tab.chat-detail'||toState.name=='tab.dash-edit'){
+      $rootScope.showBackButton=true;
+    }else{
+      $rootScope.showBackButton=false;
+    }
+     
+    
+  });
 });

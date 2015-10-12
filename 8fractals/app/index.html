@@ -57,8 +57,9 @@
     <div class="modal__toggle" on-swipe-down="openMenu()" on-swipe-up="closeMenu()">
     
     <div class="row">
-      <div class="col col-90">Your Fractal</div>
-      <div id="bottomFractalMenu" class="col col-10"><a ng-click="toggleMenu()"><i class="icon ion-chevron-down icon-menu-size" ng-class="iconFractalMenu"></i>
+      <div class="col col-20"><a ng-click="goBack()"><span ng-show="iconFractalMenu=='rotateUp'&&showBackButton==true" ><i class="icon ion-ios-arrow-back"></i>&nbsp;Back</span></a></div>
+      <div class="col col-70">Your Fractal</div>
+      <div id="bottomFractalMenu" class="col col-10" style="margin-top:-5px"><a ng-click="toggleMenu()"><i class="icon ion-chevron-down icon-menu-size" ng-class="iconFractalMenu"></i>
       </a></div>
     </div>
     </div>

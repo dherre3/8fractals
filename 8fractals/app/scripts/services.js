@@ -1,3 +1,7 @@
+/**
+*Author: David Herrera, October, 11 2015
+*/
+
 angular.module('starter.services', [])
 
 .factory('Chats', function() {
@@ -47,4 +51,37 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+.factory('Node',function(){
+  var Document;
+  var Name;
+  var Color;
+  var Node=null;
+  return {
+    setNode:function( name, color, child, doc){
+      if(!name||!color){
+        return;
+      }else{
+       Name=name;
+       Color=color;
+      if(child){
+        Node=node;
+
+      }else{
+        Node=null;
+      }
+      if(!doc){
+        Document=doc;
+      }else{
+        Document=null;
+      }
+
+      }
+      
+    }
+  };
+  
+
+
 });

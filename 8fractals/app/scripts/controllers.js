@@ -4,6 +4,17 @@ angular.module('starter.controllers', [])
   $scope.data = {
     showDelete: false
   };
+  $scope.search=function(){
+    if(typeof $scope.search.text!==null||$scope.search.text!==''){
+   
+      $scope.showCancel=true;
+    }
+};
+$scope.cancelSearch=function(){
+  $scope.showCancel=false;
+  $scope.search.text='';
+  
+}
   
   $scope.edit = function(item) {
     $state.go('tab.dash-edit');
@@ -59,6 +70,11 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+  $scope.$watch('htmlVariable',function(){
+    console.log($scope.htmlVariable);
+
+  });
+  
 })
 .controller('FractalsController', function($scope,$ionicGesture,$ionicHistory,$rootScope) {
   $scope.menuSize='modal-in';

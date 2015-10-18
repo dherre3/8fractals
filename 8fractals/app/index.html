@@ -8,7 +8,6 @@
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css" />
-    <link rel="stylesheet" href="bower_components/font-awesome-4.4.0/css/font-awesome.min.css">
     <!-- endbower -->
     <!-- endbuild -->
     <link href="styles/style.css" rel="stylesheet">
@@ -20,14 +19,9 @@
     <!-- ionic/angularjs js -->
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <link rel='stylesheet' href='/bower_components/textAngular/dist/textAngular.css'>
-    <script src='bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
-    <script src='bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
-    <script src='bower_components/textAngular/dist/textAngular.min.js'></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <!--<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>-->
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/ionic/release/js/ionic.js"></script>
     <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
@@ -41,24 +35,26 @@
     <!-- your app's js -->
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers.js"></script>
-    <script src="scripts/services.js"></script>
+    <script src="scripts/controllers/controllers.js"></script>
+    <script src="scripts/controllers/FormsController.js"></script>
+    <script src="scripts/controllers/TabsMainController.js"></script>
+    <script src="scripts/services/services.js"></script>
     <script src="scripts/configuration.js"></script>
     <!-- endbuild -->
   </head>
-  <body ng-app="starter" >
+  <body ng-app="8fractals" >
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
 
 
-    <div  ng-controller="FractalsController" ng-class="menuSize">
+    <div  ng-controller="FractalsController" ng-class="menuSize" ng-show="showFractalsMenu">
     <div class="modal__content">
     <div class="modal__menu" >
         <i class="ion-calendar"></i>
     </div>
     <div class="modal__toggle" on-swipe-down="openMenu()" on-swipe-up="closeMenu()">
-    
+
     <div class="row">
       <div class="col col-20"><a ng-click="goBack()"><span ng-show="iconFractalMenu=='rotateUp'&&showBackButton==true" ><i class="icon ion-ios-arrow-back"></i>&nbsp;Back</span></a></div>
       <div class="col col-70">Your Fractal</div>
@@ -75,6 +71,6 @@
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
-    <ion-nav-view></ion-nav-view>
+    <ion-nav-view ></ion-nav-view>
   </body>
 </html>

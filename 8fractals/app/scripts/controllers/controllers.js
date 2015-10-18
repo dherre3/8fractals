@@ -1,33 +1,31 @@
-angular.module('starter.controllers', [])
-
-.controller('DashCtrl', function($scope,$state) {
+angular.module('8fractals.controllers', []).controller('DashCtrl', function($scope,$state) {
   $scope.data = {
     showDelete: false
   };
   $scope.search=function(){
     if(typeof $scope.search.text!==null||$scope.search.text!==''){
-   
+
       $scope.showCancel=true;
     }
 };
 $scope.cancelSearch=function(){
   $scope.showCancel=false;
   $scope.search.text='';
-  
+
 }
-  
+
   $scope.edit = function(item) {
     $state.go('tab.dash-edit');
   };
   $scope.share = function(item) {
     alert('Delete Item: ' + item.id);
   };
-  
+
   $scope.moveItem = function(item, fromIndex, toIndex) {
     $scope.items.splice(fromIndex, 1);
     $scope.items.splice(toIndex, 0, item);
   };
-  
+
   $scope.onItemDelete = function(item) {
     $scope.items.splice($scope.items.indexOf(item), 1);
   };
@@ -74,7 +72,7 @@ $scope.cancelSearch=function(){
     console.log($scope.htmlVariable);
 
   });
-  
+
 })
 .controller('FractalsController', function($scope,$ionicGesture,$ionicHistory,$rootScope) {
   $scope.menuSize='modal-in';

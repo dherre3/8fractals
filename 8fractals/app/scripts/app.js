@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ngAnimate','textAngular'])
+angular.module('8fractals', ['ionic', '8fractals.controllers', '8fractals.services','ngAnimate'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -35,6 +35,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     .state('tab', {
     url: '/tab',
     abstract: true,
+    controller:'TabsMainController',
     templateUrl: 'templates/tabs.html'
   })
 
@@ -86,15 +87,42 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
       }
     }
   })
-   .state('login', {
-    url: '/account',
-    templateUrl:'templates/login.html',
-    controller:'LoginController'
+  .state('forms',{
+    url:'/forms',
+    templateUrl:'templates/forms-template.html',
+    abstract:true,
+    controller:'FormsController'
+  })
+  .state('forms.forgot-password',{
+      url:'/forgot-password',
+      views:{
+        'forms':{
+          templateUrl:'templates/forms/forgot-password.html',
+          controller:'FormsController'
+        }
+      }
+  })
+  .state('forms.register',{
+    url:'/register',
+    views:{
+      'forms':{
+        templateUrl:'templates/forms/register.html',
+        controller:'FormsController'
+      }
+    }
+  })
+   .state('forms.login', {
+    url: '/login',
+    views:{
+      'forms':{
+        templateUrl:'templates/forms/login.html',
+        controller:'FormsController'
+      }
     }
   })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/forms/login');
 
 })
 .run(function ($rootScope, $state,$timeout)
@@ -107,7 +135,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     }else{
       $rootScope.showBackButton=false;
     }
-     
-    
+    if(toState.name=='forms.login'||toState.name=='forms.register'||toState.name=='forms.forgot-password'){
+      $rootScope.showFractalsMenu=false;
+
+    }else{
+      $rootScope.showFractalsMenu=true;
+    }
+
+
   });
 });

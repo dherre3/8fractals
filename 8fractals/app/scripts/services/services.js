@@ -2,7 +2,7 @@
 *Author: David Herrera, October, 11 2015
 */
 
-angular.module('starter.services', [])
+angular.module('8fractals.services', [])
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
@@ -52,7 +52,6 @@ angular.module('starter.services', [])
     }
   };
 })
-
 .factory('Node',function(){
   var Document;
   var Name;
@@ -78,10 +77,10 @@ angular.module('starter.services', [])
       }
 
       }
-      
+
     }
   };
-  
+
 
 
 });

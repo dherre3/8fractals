@@ -37,7 +37,7 @@
  height:100%;
   display: table;
   z-index: 2147483647;
- 
+
 -webkit-transition: margin-top 0.5s; /* For Safari 3.1 to 6.0 */
  transition: margin-top 0.5s;
 
@@ -81,7 +81,7 @@
   display: table;
   z-index: 2147483647;
   margin-top:-92vh;
-	
+
 	-webkit-transition:  margin-top 0.5s; /* For Safari 3.1 to 6.0 */
     transition: margin-top 0.5s;
 }
@@ -146,4 +146,11 @@
   -webkit-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
+}
+
+a {
+  text-decoration: none;
+}
+a:visited {
+    color:darkblue;
 }
